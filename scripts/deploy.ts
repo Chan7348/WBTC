@@ -1,19 +1,12 @@
-// import { WETH } from './../typechain-types/WETH';
-// import { Signer } from "ethers";
-import { ethers } from "hardhat";
+import { viem } from "hardhat";
 import { vars } from "hardhat/config";
 
 async function main() {
-  // const Wallet = await ethers.deployContract("Wallet", [[vars.get("TEST1_ACCOUNT"), vars.get("TEST2_ACCOUNT")], 2]);
 
-  // await Wallet.waitForDeployment();
-
-  const WETHFactory = await ethers.getContractFactory("WETH");
-
-  const WETH = await WETHFactory.deploy();
+  const WBTC = await viem.deployContract("WBTC");
 
   console.log(
-    `deployed to ${ await WETH.getAddress()}`
+    `deployed to ${WBTC.address}`
   );
 }
 
